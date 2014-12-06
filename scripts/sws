@@ -1,0 +1,7 @@
+#!/bin/sh
+
+
+c=$(cd $(dirname $0);pwd)
+
+java -jar -DListen=$1 -DDocumentRoot=$(pwd) $c/simple-web-server-assembly-1.0.jar
+
