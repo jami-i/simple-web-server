@@ -24,7 +24,7 @@ object Main extends App {
           case Some(file) =>
             Filer.file2Buff(file) match{
               case Some(channelBuffer) =>
-                val res = new DefaultHttpResponse(req.getProtocolVersion, HttpResponseStatus.NOT_FOUND)
+                val res = new DefaultHttpResponse(req.getProtocolVersion, HttpResponseStatus.OK)
                 val contentType = Option(URLConnection.guessContentTypeFromName(file.getName))
                 res.setHeader("Content-Type", contentType.getOrElse("text/plain"))
                 res.setContent(channelBuffer)
