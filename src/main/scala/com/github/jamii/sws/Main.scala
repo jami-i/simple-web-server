@@ -30,11 +30,11 @@ object Main extends App {
                 res.setContent(channelBuffer)
                 res
               case None =>
-                System.err.println(s"FileNotFound : ${file.getAbsolutePath}")
                 new DefaultHttpResponse(req.getProtocolVersion, HttpResponseStatus.OK)
             }
-          case None => new DefaultHttpResponse(
-            req.getProtocolVersion, HttpResponseStatus.NOT_FOUND)
+          case None =>
+            System.err.println(s"FileNotFound : ${req.getUri}")
+            new DefaultHttpResponse(req.getProtocolVersion, HttpResponseStatus.NOT_FOUND)
         }
       }
   }
